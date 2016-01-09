@@ -1,0 +1,7 @@
+.idea
+build
+test
+.*ignore
+karma.conf.js
+Gruntfile.js
+*.tgz

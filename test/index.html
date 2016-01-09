@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard User Test</title>
+    <script src="../build/module.js"></script>
+</head>
+<body style="background-color: #222">
+
+<div id="output" style="position: fixed; left: 50%; top: 20%; margin-left: -150px;
+                            width: 300px; height: 200px; line-height: 200px; background-color: #444;
+                            color: #ccc; font-size: 32pt; text-align: center">
+    Press keys.
+</div>
+
+<script type="text/javascript">
+    var key = window.keyboard(document) // Default target is `document.body`
+    key.on("keydown", function (e) {
+        // Event contents are vkey values: https://www.npmjs.com/package/vkey
+        document.getElementById("output").innerText = e;
+    })
+</script>
+
+</body>
+</html>

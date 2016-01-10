@@ -3,8 +3,8 @@ var util         = require("util")
 var vkey         = require("vkey")
 var browser      = require("./browser")
 
-module.exports          = keyboard;
-browser.window.keyboard = keyboard;
+module.exports           = keyboard;
+browser.window.keyevents = keyboard;
 
 function keyboard(target) {
     return new Keyboard(target);

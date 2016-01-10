@@ -1,7 +1,7 @@
 {
-  "name": "keyboard",
+  "name": "key-events",
   "version": "0.0.1",
-  "description": "Keyboard event tracking for browsers.",
+  "description": "Keyboard listener for browsers, using vkey.",
   "main": "src/keyboard.js",
   "directories": {
     "test": "test"
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apexearth/keyboard.git"
+    "url": "git@github.com:apexearth/key-events.git"
   },
   "author": "apexearth@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/apexearth/keyboard/issues"
+    "url": "https://github.com/apexearth/key-events/issues"
   },
-  "homepage": "https://github.com/apexearth/keyboard#readme",
+  "homepage": "https://github.com/apexearth/key-events#readme",
   "dependencies": {
     "vkey": "^1.0.0"
   },

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Keyboard User Test</title>
+    <title>key-events - User Test</title>
     <script src="../build/module.js"></script>
 </head>
 <body style="background-color: #222">
@@ -13,7 +13,7 @@
 </div>
 
 <script type="text/javascript">
-    var key = window.keyboard(document) // Default target is `document.body`
+    var key = window.keyevents(document) // Default target is `document.body`
     key.on("keydown", function (e) {
         // Event contents are vkey values: https://www.npmjs.com/package/vkey
         document.getElementById("output").innerText = e;

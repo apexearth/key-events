@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/mocha.js && grunt test"
+    "test": "mocha test/mocha.js && grunt test",
+    "mocha": "mocha test/mocha.js"
   },
   "repository": {
     "type": "git",

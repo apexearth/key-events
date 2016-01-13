@@ -1,4 +1,5 @@
 # key-events
+![](https://travis-ci.org/apexearth/key-events.svg)
 ![](http://img.shields.io/npm/v/key-events.svg?style=flat)
 ![](http://img.shields.io/npm/dm/key-events.svg?style=flat)
 ![](http://img.shields.io/npm/l/key-events.svg?style=flat)

@@ -10,17 +10,25 @@ function keyboard(target) {
     return new Keyboard(target);
 }
 
-function Keyboard(target) {
+function Keyboard(target, events) {
     EventEmitter.call(this);
     var that = this;
-    target   = target || browser.document.body;
+    if (target && target.constructor === Array) {
+        events = target;
+        target = null;
+    }
+    target = target || browser.document.body
+    events = events || [
+            "keydown",
+            "keyup"
+        ]
 
-    target.addEventListener("keydown", function (event) {
-        that.emit("keydown", vkey[event.keyCode]);
-    });
-
-    target.addEventListener("keyup", function (event) {
-        that.emit("keyup", vkey[event.keyCode]);
-    });
+    for (var i = 0; i < events.length; i++) {
+        (function (eventName) {
+            target.addEventListener(eventName, function (event) {
+                that.emit(eventName, vkey[event.keyCode])
+            })
+        })(events[i])
+    }
 }
 util.inherits(Keyboard, EventEmitter);

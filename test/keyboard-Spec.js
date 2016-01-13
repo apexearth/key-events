@@ -41,4 +41,26 @@ describe("keyboard.js", function () {
         kb.removeAllListeners();
     })
 
+    it("accepts list of events", function () {
+        var kb   = keyboard(["testevent"]);
+        var test = undefined;
+        kb.on("testevent", function (e) {
+            test = e
+        })
+        event.trigger(kbTarget, "testevent", {keyCode: 65})
+        expect(test).toEqual('A')
+        kb.removeAllListeners()
+    })
+
+    it("overrides default events", function () {
+        var kb   = keyboard([]);
+        var test = undefined;
+        kb.on("keydown", function (e) {
+            test = e
+        })
+        event.trigger(kbTarget, "keydown", {keyCode: 65})
+        expect(test).toNotExist()
+        kb.removeAllListeners()
+    })
+
 })

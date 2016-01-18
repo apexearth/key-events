@@ -11,7 +11,7 @@ Provides **keydown** and **keyup** events using [vkey](https://www.npmjs.com/pac
 
 [![NPM](https://nodei.co/npm/key-events.png)](https://nodei.co/npm/key-events/)
 
-### `listener = keyevents([target = document.body])`
+### `listener = keyevents([target], [events])`
 
 ## Example
 

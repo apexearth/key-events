@@ -1,6 +1,6 @@
 {
   "name": "key-events",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Keyboard listener for browsers, using vkey.",
   "main": "src/keyboard.js",
   "directories": {
@@ -23,6 +23,11 @@
   "dependencies": {
     "vkey": "^1.0.0"
   },
+  "keywords": [
+    "keyboard",
+    "events",
+    "input"
+  ],
   "devDependencies": {
     "expect": "^1.13.4",
     "grunt": "^0.4.5",

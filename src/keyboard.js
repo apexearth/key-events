@@ -26,7 +26,7 @@ function Keyboard(target, events) {
     for (var i = 0; i < events.length; i++) {
         (function (eventName) {
             target.addEventListener(eventName, function (event) {
-                that.emit(eventName, vkey[event.keyCode])
+                that.emit(eventName, vkey[event.keyCode], event)
             })
         })(events[i])
     }

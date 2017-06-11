@@ -1,4 +1,4 @@
-var expect   = require("expect")
+var expect   = require("chai").expect
 var event    = require("./event.js")
 var keyboard = require("../src/keyboard.js")
 var browser  = require("../src/browser.js")
@@ -7,37 +7,45 @@ describe("keyboard.js", function () {
 
     var kbTarget = browser.document.body;
     it("should detect keydown events", function () {
-        var kb   = keyboard();
-        var test = undefined;
-        kb.on("keydown", function (key) {
-            test = key;
+        var kb             = keyboard();
+        var triggeredEvent = {keyCode: 65}
+        var test           = undefined;
+        var testEvent      = undefined;
+        kb.on("keydown", function (k, e) {
+            test      = k;
+            testEvent = e;
         })
-        event.trigger(kbTarget, "keydown", {keyCode: 65})
-        expect(test).toEqual('A')
+        event.trigger(kbTarget, "keydown", triggeredEvent)
+        expect(test).to.equal('A')
+        expect(testEvent.keyCode).to.equal(triggeredEvent.keyCode)
         kb.removeAllListeners();
     })
 
     it("should detect keyup events", function () {
-        var kb   = keyboard();
-        var test = undefined;
-        kb.on("keyup", function (key) {
-            test = key;
+        var kb             = keyboard();
+        var triggeredEvent = {keyCode: 65}
+        var test           = undefined;
+        var testEvent      = undefined;
+        kb.on("keyup", function (k, e) {
+            test      = k;
+            testEvent = e;
         })
-        event.trigger(kbTarget, "keyup", {keyCode: 65})
-        expect(test).toEqual('A')
+        event.trigger(kbTarget, "keyup", triggeredEvent)
+        expect(test).to.equal('A')
+        expect(testEvent.keyCode).to.equal(triggeredEvent.keyCode)
         kb.removeAllListeners();
     })
 
     it("should accept a custom target", function () {
         var kb = keyboard(browser.window)
-        expect(browser.window).toNotBe(kbTarget)
+        expect(browser.window).to.not.equal(kbTarget)
 
         var test = undefined;
         kb.on("keyup", function (key) {
             test = key;
         })
         event.trigger(browser.window, "keyup", {keyCode: 65})
-        expect(test).toEqual('A')
+        expect(test).to.equal('A')
         kb.removeAllListeners();
     })
 
@@ -48,7 +56,7 @@ describe("keyboard.js", function () {
             test = e
         })
         event.trigger(kbTarget, "testevent", {keyCode: 65})
-        expect(test).toEqual('A')
+        expect(test).to.equal('A')
         kb.removeAllListeners()
     })
 
@@ -59,7 +67,7 @@ describe("keyboard.js", function () {
             test = e
         })
         event.trigger(kbTarget, "keydown", {keyCode: 65})
-        expect(test).toNotExist()
+        expect(test).to.not.exist
         kb.removeAllListeners()
     })
 

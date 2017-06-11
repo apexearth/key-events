@@ -6,8 +6,8 @@ var browser      = require("./browser")
 module.exports           = keyboard;
 browser.window.keyevents = keyboard;
 
-function keyboard(target) {
-    return new Keyboard(target);
+function keyboard(target, events) {
+    return new Keyboard(target, events);
 }
 
 function Keyboard(target, events) {

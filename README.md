@@ -14,19 +14,48 @@ Provides **keydown** and **keyup** events using [vkey](https://www.npmjs.com/pac
 
 ### `listener = keyevents([target], [events])`
 
-## Example
+## Examples
 
-    var key = window.keyevents(document) // Default target is `document.body`
-    key.on("keydown", function(e) {
-        // Event contents are vkey values: https://www.npmjs.com/package/vkey
-        document.getElementById("output").innerText = e;
+#### Basic Usage
+
+    const keyevents = require('key-events') // Also at window.keyevents.
+
+    // Default target is:  document.body
+    // Default events are: ['keyup', 'keydown']
+    var keys = keyevents() 
+    
+    keys.on("keydown", function(key, event) {
+        console.log(key)   // A vkey value based on the key pressed.
+        console.log(event) // The original event received.
+    })    
+    
+    keys.on("keyup", function(key, event) {
+        console.log(key)   // A vkey value based on the key pressed.
+        console.log(event) // The original event received.
+    })
+
+#### Custom  Target
+
+    var keys = window.keyevents(document) // Default target is `document.body`
+
+#### Custom Event List
+
+    var keys = window.keyevents(['keypress']) // Default target is `document.body`
+
+    keys.on("keypress", function(key, event) {
+        console.log(key)   // A vkey value based on the key pressed.
+        console.log(event) // The original event received.
+    })
+
+#### Custom Target & Event List
+
+    var keys = window.keyevents(document, ['keypress']) // Default target is `document.body`
+
+    keys.on("keypress", function(key, event) {
+        console.log(key)   // A vkey value based on the key pressed.
+        console.log(event) // The original event received.
     })
     
-## Events
-
-- keydown
-- keyup
-
 ## Tests
 
 - Mocha

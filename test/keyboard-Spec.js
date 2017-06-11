@@ -60,6 +60,17 @@ describe("keyboard.js", function () {
         kb.removeAllListeners()
     })
 
+    it("accepts list of events, with custom target", function () {
+        var kb   = keyboard(browser.window, ["testevent"]);
+        var test = undefined;
+        kb.on("testevent", function (e) {
+            test = e
+        })
+        event.trigger(browser.window, "testevent", {keyCode: 65})
+        expect(test).to.equal('A')
+        kb.removeAllListeners()
+    })
+
     it("overrides default events", function () {
         var kb   = keyboard([]);
         var test = undefined;

@@ -1,6 +1,6 @@
 {
   "name": "key-events",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Keyboard listener for browsers, using vkey.",
   "main": "src/keyboard.js",
   "directories": {

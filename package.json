@@ -42,7 +42,7 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-ie-launcher": "^1.0.0",
     "karma-jasmine": "^0.3.8",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "mock-browser": "^0.92.14",
     "openurl": "^1.1.1"
   }
